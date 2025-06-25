@@ -231,29 +231,35 @@
     </style>
 </head>
 <body class="bg-gray-50">
-    <!-- Navbar -->
-    <nav id="navbar" class="navbar fixed w-full z-50 px-4 py-3 transition-all duration-300">
-        <div class="container mx-auto flex justify-between items-center">
-            <a href="index.html" class="flex items-center">
-            <img src="Images/safi-logo.png" alt="SafiTechltd" class="h-10 w-auto" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<span class=\'text-3xl font-[Pacifico] text-primary\'>SafiTechltd</span>');" />
-            <div class="hidden md:flex space-x-8">
-                <a href="index.html" class="text-gray-800 hover:text-primary font-medium transition-colors">Home</a>
-                <a href="#" class="text-gray-800 hover:text-primary font-medium transition-colors">About</a>
-                <a href="services-2.html" class="text-gray-800 hover:text-primary font-medium transition-colors">Services</a>
-                <a href="about-1.html#gallery" class="text-gray-800 hover:text-primary font-medium transition-colors">Gallery</a>
-                <a href="#blog" class="text-gray-800 hover:text-primary font-medium transition-colors">Blog</a>
-                <a href="contact-1.html" class="text-gray-800 hover:text-primary font-medium transition-colors">Contact</a>
-            </div>
-            
-            <div class="flex items-center space-x-4">         
-                <a href="http://wa.me/254722756629" class="bg-primary text-white px-6 py-2 !rounded-button font-medium hover:bg-opacity-90 transition-all whitespace-nowrap hidden md:block">Get a Quote</a>
-                
-                <button class="w-10 h-10 flex items-center justify-center text-gray-700 md:hidden">
-                    <i class="ri-menu-line ri-xl"></i>
-                </button>
-            </div>
-        </div>
-    </nav>
+<!-- Navbar -->
+<nav id="navbar" class="navbar fixed w-full z-50 px-4 py-3 transition-all duration-300 bg-white">
+  <div class="container mx-auto flex justify-between items-center">
+    <a href="index.html" class="flex items-center">
+      <img src="Images/safi-logo.png" alt="SafiTechltd" class="h-10 w-auto"
+        onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<span class=\'text-3xl font-[Pacifico] text-primary\'>SafiTechltd</span>');" />
+    </a>
+
+    <!-- Desktop Menu -->
+    <div class="hidden md:flex space-x-8">
+      <a href="index.html" class="text-gray-800 hover:text-primary font-medium transition-colors">Home</a>
+      <a href="about-1.html" class="text-gray-800 hover:text-primary font-medium transition-colors">About</a>
+      <a href="#" class="text-gray-800 hover:text-primary font-medium transition-colors">Services</a>
+      <a href="about-1.html#gallery" class="text-gray-800 hover:text-primary font-medium transition-colors">Gallery</a>
+      <a href="#blog" class="text-gray-800 hover:text-primary font-medium transition-colors">Blog</a>
+      <a href="contact-1.html" class="text-gray-800 hover:text-primary font-medium transition-colors">Contact</a>
+    </div>
+
+    <!-- Mobile Toggle Button -->
+    <div class="flex items-center space-x-4">
+      <a href="http://wa.me/254722756629"
+        class="bg-primary text-white px-6 py-2 !rounded-button font-medium hover:bg-opacity-90 transition-all whitespace-nowrap hidden md:block">Get
+        a Quote</a>
+
+      <button id="menu-toggle" class="w-10 h-10 flex items-center justify-center text-gray-700 md:hidden">
+        <i class="ri-menu-line ri-xl"></i>
+      </button>
+    </div>
+  </div>
 
     <!-- Hero Section -->
     <section class="relative min-h-screen flex items-center pt-16" style="background-image: url('https://readdy.ai/api/search-image?query=Professional%20painting%20team%20working%20together%20on%20a%20large%20residential%20project%2C%20bright%20natural%20lighting%2C%20team%20members%20in%20branded%20uniforms%20with%20paint%20rollers%20and%20brushes%2C%20showing%20teamwork%20and%20craftsmanship%2C%20high-quality%20professional%20photography%20with%20shallow%20depth%20of%20field&width=1920&height=1080&seq=1&orientation=landscape'); background-size: cover; background-position: center;">
@@ -1215,5 +1221,13 @@
             updateSlider(slider.value);
         });
     </script>
+		<script>
+  const toggleBtn = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  toggleBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+  });
+</script>
 </body>
 </html>
