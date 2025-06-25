@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safitech ltd</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>tailwind.config={theme:{extend:{colors:{primary:'#81cad6',secondary:'#edcd44', accent: '#dc3e26'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="icon" type="image/png" href="images/favicon-1.png">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <style>
+        :where([class^="ri-"])::before { content: "\f3c2"; }
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #81cad6 0%, #ffffff 100%);
+        }
+        .contact-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        .form-input:focus {
+            border-color: #81cad6;
+            box-shadow: 0 0 0 3px rgba(129, 202, 214, 0.2);
+        }
+        .form-input:focus + .input-icon {
+            color: #81cad6;
+        }
+        .floating-paint {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        .faq-item-header.active .faq-icon {
+            transform: rotate(180deg);
+        }
+        .faq-item-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        .faq-item-content.active {
+            max-height: 500px;
+        }
+        .map-container {
+            position: relative;
+            overflow: hidden;
+            height: 400px;
+        }
+        .map-pin {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -100%);
+            animation: pin-bounce 2s ease-in-out infinite;
+        }
+        @keyframes pin-bounce {
+            0%, 100% { transform: translate(-50%, -100%); }
+            50% { transform: translate(-50%, -110%); }
+        }
+    </style>
+</head>
+<body class="bg-white min-h-screen">
+    <!-- Navbar -->
+    <nav id="navbar" class="navbar fixed w-full z-50 px-4 py-3 transition-all duration-300">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="home-1.html" class="flex items-center">
+            <img src="Images/safi-logo.png" alt="SafiTechltd" class="h-10 w-auto" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<span class=\'text-3xl font-[Pacifico] text-primary\'>SafiTechltd</span>');" />
+            <div class="hidden md:flex space-x-8">
+                <a href="home-1.html" class="text-gray-800 hover:text-primary font-medium transition-colors">Home</a>
+                <a href="about-1.html" class="text-gray-800 hover:text-primary font-medium transition-colors">About</a>
+                <a href="services-2.html" class="text-gray-800 hover:text-primary font-medium transition-colors">Services</a>
+                <a href="home-1.html#gallery" class="text-gray-800 hover:text-primary font-medium transition-colors">Gallery</a>
+                <a href="home-1.html#blog" class="text-gray-800 hover:text-primary font-medium transition-colors">Blog</a>
+                <a href="#" class="text-gray-800 hover:text-primary font-medium transition-colors">Contact</a>
+            </div>
+            
+            <div class="flex items-center space-x-4">         
+                <button class="bg-primary text-white px-6 py-2 !rounded-button font-medium hover:bg-opacity-90 transition-all whitespace-nowrap hidden md:block">Get a Quote</button>
+                
+                <button class="w-10 h-10 flex items-center justify-center text-gray-700 md:hidden">
+                    <i class="ri-menu-line ri-xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient py-20 relative overflow-hidden">
+        <div class="container mx-auto px-6 w-full">
+            <div class="relative z-10 flex flex-col items-center">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 mb-6 text-center">Contact Us</h1>
+                <p class="text-lg text-gray-700 max-w-2xl text-center mb-8">We're here to help with all your painting needs. Reach out to our team for professional advice and service.</p>
+            </div>
+            <div class="absolute right-0 top-0 opacity-20 floating-paint">
+                <div class="w-20 h-20 rounded-full bg-accent"></div>
+            </div>
+            <div class="absolute left-10 bottom-10 opacity-20 floating-paint" style="animation-delay: 1s;">
+                <div class="w-16 h-16 rounded-full bg-secondary"></div>
+            </div>
+            <div class="absolute right-20 bottom-20 opacity-20 floating-paint" style="animation-delay: 2s;">
+                <div class="w-12 h-12 rounded-full bg-primary"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Cards -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Phone Card -->
+                <div class="contact-card bg-white rounded p-8 shadow-md text-center">
+                    <div class="w-16 h-16 mx-auto mb-4 bg-accent bg-opacity-10 rounded-full flex items-center justify-center">
+                        <i class="ri-phone-line ri-xl text-accent"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Call Us</h3>
+                    <p class="text-gray-600 mb-4">Our team is available Monday-Friday, 8am-6pm</p>
+                    <a href="tel:+254722756629" class="text-accent font-medium hover:underline">(+254) 722-756-629</a>
+                </div>
+                
+                <!-- Email Card -->
+                <div class="contact-card bg-white rounded p-8 shadow-md text-center">
+                    <div class="w-16 h-16 mx-auto mb-4 bg-secondary bg-opacity-10 rounded-full flex items-center justify-center">
+                        <i class="ri-mail-line ri-xl text-secondary"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Email Us</h3>
+                    <p class="text-gray-600 mb-4">We'll respond to your inquiry within 24 hours</p>
+                    <a href="mailto:safitechltd@gmail.com" class="text-secondary font-medium hover:underline">safitechltd@gmail.com</a>
+                </div>
+                
+                <!-- Location Card -->
+                <div class="contact-card bg-white rounded p-8 shadow-md text-center">
+                    <div class="w-16 h-16 mx-auto mb-4 bg-primary bg-opacity-10 rounded-full flex items-center justify-center">
+                        <i class="ri-map-pin-line ri-xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Visit Us</h3>
+                    <p class="text-gray-600 mb-4">Our showroom is open for consultations</p>
+                    <address class="not-italic text-primary font-medium">
+                        Nairobi, Kenya
+                    </address>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form and Map Section -->
+    <section class="py-16">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row gap-12">
+                <!-- Contact Form -->
+                <div class="w-full lg:w-1/2">
+                    <h2 class="text-3xl font-bold mb-8 text-gray-800">Send Us a Message</h2>
+                    <form id="contactForm" class="space-y-6">
+                        <div class="relative">
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Full Name *</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none w-10 h-10">
+                                    <i class="ri-user-line text-gray-400"></i>
+                                </div>
+                                <input type="text" id="name" name="name" required class="form-input w-full pl-10 py-3 border border-gray-300 rounded focus:outline-none" placeholder="John Smith">
+                            </div>
+                        </div>
+                        
+                        <div class="relative">
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address *</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none w-10 h-10">
+                                    <i class="ri-mail-line text-gray-400"></i>
+                                </div>
+                                <input type="email" id="email" name="email" required class="form-input w-full pl-10 py-3 border border-gray-300 rounded focus:outline-none" placeholder="john@example.com">
+                            </div>
+                        </div>
+                        
+                        <div class="relative">
+                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none w-10 h-10">
+                                    <i class="ri-phone-line text-gray-400"></i>
+                                </div>
+                                <input type="tel" id="phone" name="phone" class="form-input w-full pl-10 py-3 border border-gray-300 rounded focus:outline-none" placeholder="(123) 456-7890">
+                            </div>
+                        </div>
+                        
+                        <div class="relative">
+                            <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Subject *</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none w-10 h-10">
+                                    <i class="ri-file-list-line text-gray-400"></i>
+                                </div>
+                                <div class="relative">
+                                    <button id="subjectBtn" type="button" class="form-input w-full pl-10 py-3 border border-gray-300 rounded focus:outline-none text-left flex justify-between items-center">
+                                        <span id="subjectText">Select a subject</span>
+                                        <i class="ri-arrow-down-s-line"></i>
+                                    </button>
+                                    <div id="subjectDropdown" class="hidden absolute z-10 mt-1 w-full bg-white border border-gray-300 rounded shadow-lg">
+                                        <div class="py-1">
+                                            <a href="#" class="subject-option block px-4 py-2 text-gray-700 hover:bg-gray-100">Service Inquiry</a>
+                                            <a href="#" class="subject-option block px-4 py-2 text-gray-700 hover:bg-gray-100">Product Question</a>
+                                            <a href="#" class="subject-option block px-4 py-2 text-gray-700 hover:bg-gray-100">Quote Request</a>
+                                            <a href="#" class="subject-option block px-4 py-2 text-gray-700 hover:bg-gray-100">Other</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="relative">
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message *</label>
+                            <div class="relative">
+                                <div class="absolute top-3 left-3 flex items-start pointer-events-none w-10 h-10">
+                                    <i class="ri-chat-1-line text-gray-400"></i>
+                                </div>
+                                <textarea id="message" name="message" rows="5" required class="form-input w-full pl-10 py-3 border border-gray-300 rounded focus:outline-none" placeholder="How can we help you?"></textarea>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-accent text-white py-3 px-6 rounded-button font-medium hover:bg-opacity-90 transition-colors flex items-center justify-center whitespace-nowrap">
+                            <i class="ri-send-plane-line mr-2"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- Map Section -->
+                <div class="w-full lg:w-1/2">
+                    <h2 class="text-3xl font-bold mb-8 text-gray-800">Find Us</h2>
+                    <div class="map-container rounded overflow-hidden shadow-md">
+                        <div class="w-full h-full" style="background-image: url('https://public.readdy.ai/gen_page/map_placeholder_1280x720.png'); background-position: center; background-size: cover;"></div>
+                        <div class="map-pin">
+                            <div class="w-6 h-6 bg-primary rounded-full border-4 border-white shadow-lg"></div>
+                            <div class="w-4 h-4 bg-white absolute -bottom-4 left-1/2 transform -translate-x-1/2 rotate-45"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 bg-gray-50 p-6 rounded">
+                        <h3 class="text-xl font-semibold mb-4">Store Hours</h3>
+                        <ul class="space-y-2">
+                            <li class="flex justify-between">
+                                <span class="text-gray-600">Monday - Friday</span>
+                                <span class="font-medium">8:00 AM - 6:00 PM</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span class="text-gray-600">Saturday</span>
+                                <span class="font-medium">9:00 AM - 5:00 PM</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span class="text-gray-600">Sunday</span>
+                                <span class="font-medium">Closed</span>
+                            </li>
+                        </ul>
+                        <div class="mt-6">
+                            <a href="https://www.google.com/maps/place/Mama+Lucy+Kibaki+Hospital/@-1.2739928,36.8742224,14z/data=!4m15!1m8!3m7!1s0x182f1462b22cf4e9:0xeeaf9dc67fd76fd2!2sKomarocks,+Nairobi!3b1!8m2!3d-1.2689365!4d36.907205!16s%2Fg%2F1vzsj78g!3m5!1s0x182f1470b9264eaf:0xa15a0e53078b47b8!8m2!3d-1.274009!4d36.8989906!16s%2Fg%2F1tgccsyw?entry=ttu&g_ep=EgoyMDI1MDYyMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="inline-flex items-center text-primary hover:underline">
+                                <i class="ri-direction-line mr-2"></i>
+                                Get Directions
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- FAQ Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-12 text-center text-gray-800">Frequently Asked Questions</h2>
+            
+            <div class="max-w-3xl mx-auto space-y-4">
+                <!-- FAQ Item 1 -->
+                <div class="faq-item bg-white rounded shadow-sm overflow-hidden">
+                    <div class="faq-item-header cursor-pointer p-6 flex justify-between items-center">
+                        <h3 class="text-lg font-medium">What painting services do you offer?</h3>
+                        <div class="w-8 h-8 flex items-center justify-center transition-transform duration-300 faq-icon">
+                            <i class="ri-arrow-down-s-line"></i>
+                        </div>
+                    </div>
+                    <div class="faq-item-content px-6 pb-6">
+                        <p class="text-gray-600">We offer a comprehensive range of painting services including interior and exterior painting for residential and commercial properties, decorative finishes, cabinet refinishing, deck and fence staining, and color consultation services. Our team of professionals uses high-quality materials to ensure long-lasting results.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 2 -->
+                <div class="faq-item bg-white rounded shadow-sm overflow-hidden">
+                    <div class="faq-item-header cursor-pointer p-6 flex justify-between items-center">
+                        <h3 class="text-lg font-medium">How do I choose the right paint for my project?</h3>
+                        <div class="w-8 h-8 flex items-center justify-center transition-transform duration-300 faq-icon">
+                            <i class="ri-arrow-down-s-line"></i>
+                        </div>
+                    </div>
+                    <div class="faq-item-content px-6 pb-6">
+                        <p class="text-gray-600">Choosing the right paint depends on several factors including the surface you're painting, the environment (interior vs. exterior), desired finish (matte, eggshell, satin, semi-gloss, or high-gloss), and your budget. Our paint experts can provide personalized recommendations based on your specific needs during a consultation.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 3 -->
+                <div class="faq-item bg-white rounded shadow-sm overflow-hidden">
+                    <div class="faq-item-header cursor-pointer p-6 flex justify-between items-center">
+                        <h3 class="text-lg font-medium">Do you offer color consultation services?</h3>
+                        <div class="w-8 h-8 flex items-center justify-center transition-transform duration-300 faq-icon">
+                            <i class="ri-arrow-down-s-line"></i>
+                        </div>
+                    </div>
+                    <div class="faq-item-content px-6 pb-6">
+                        <p class="text-gray-600">Yes, we offer professional color consultation services to help you select the perfect colors for your space. Our color consultants consider factors like lighting, existing décor, architectural features, and your personal preferences to create a cohesive color scheme that enhances your property's aesthetic appeal.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 4 -->
+                <div class="faq-item bg-white rounded shadow-sm overflow-hidden">
+                    <div class="faq-item-header cursor-pointer p-6 flex justify-between items-center">
+                        <h3 class="text-lg font-medium">How long does a typical painting project take?</h3>
+                        <div class="w-8 h-8 flex items-center justify-center transition-transform duration-300 faq-icon">
+                            <i class="ri-arrow-down-s-line"></i>
+                        </div>
+                    </div>
+                    <div class="faq-item-content px-6 pb-6">
+                        <p class="text-gray-600">The duration of a painting project varies based on the size and complexity of the job. A single room might take 1-2 days, while a full interior home painting could take 3-7 days. Exterior projects typically take 3-5 days depending on weather conditions and home size. We'll provide you with a specific timeline during the estimation process.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 5 -->
+                <div class="faq-item bg-white rounded shadow-sm overflow-hidden">
+                    <div class="faq-item-header cursor-pointer p-6 flex justify-between items-center">
+                        <h3 class="text-lg font-medium">Do you provide warranties on your painting services?</h3>
+                        <div class="w-8 h-8 flex items-center justify-center transition-transform duration-300 faq-icon">
+                            <i class="ri-arrow-down-s-line"></i>
+                        </div>
+                    </div>
+                    <div class="faq-item-content px-6 pb-6">
+                        <p class="text-gray-600">Yes, we stand behind our work with a comprehensive warranty. Our standard warranty covers labor and materials for 2 years on interior projects and 3 years on exterior projects. This warranty protects against peeling, blistering, and excessive fading. Extended warranty options are also available for select premium paint products.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Support Links -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-2xl font-bold mb-8 text-center text-gray-800">Quick Support</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Operating Hours -->
+                <button class="flex items-center p-6 bg-gray-50 rounded hover:bg-gray-100 transition-colors"</button>
+                    <div class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-4">
+                        <i class="ri-time-line ri-lg text-primary"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-medium">Operating Hours</h3>
+                        <p class="text-sm text-gray-600">View our business hours</p>
+                    </div>
+                </a>
+                
+                <!-- Emergency Services -->
+                <button class="flex items-center p-6 bg-gray-50 rounded hover:bg-gray-100 transition-colors"</button>
+                    <div class="w-12 h-12 flex items-center justify-center bg-accent bg-opacity-10 rounded-full mr-4">
+                        <i class="ri-alarm-warning-line ri-lg text-accent"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-medium">Emergency Services</h3>
+                        <p class="text-sm text-gray-600">24/7 emergency support</p>
+                    </div>
+                </a>
+                
+                <!-- Product Catalog -->
+                <button class="flex items-center p-6 bg-gray-50 rounded hover:bg-gray-100 transition-colors"</button>
+                    <div class="w-12 h-12 flex items-center justify-center bg-secondary bg-opacity-10 rounded-full mr-4">
+                        <i class="ri-paint-brush-line ri-lg text-secondary"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-medium">Product Catalog</h3>
+                        <p class="text-sm text-gray-600">Browse our paint selection</p>
+                    </div>
+                </a>
+                
+                <!-- Support Policy -->
+                <button class="flex items-center p-6 bg-gray-50 rounded hover:bg-gray-100 transition-colors"</button>
+                    <div class="w-12 h-12 flex items-center justify-center bg-gray-700 bg-opacity-10 rounded-full mr-4">
+                        <i class="ri-customer-service-line ri-lg text-gray-700"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-medium">Support Policy</h3>
+                        <p class="text-sm text-gray-600">Learn about our guarantees</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="py-16 bg-primary bg-opacity-5">
+        <div class="container mx-auto px-6">
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="text-3xl font-bold mb-4 text-gray-800">Stay Updated</h2>
+                <p class="text-gray-600 mb-8">Subscribe to our newsletter for the latest painting tips, color trends, and exclusive offers.</p>
+                
+                <form class="flex flex-col sm:flex-row gap-4">
+                    <input type="email" placeholder="Your email address" class="flex-grow py-3 px-4 border border-gray-300 rounded focus:outline-none focus:border-primary">
+                    <button type="submit" class="bg-primary text-white py-3 px-6 rounded-button font-medium hover:bg-opacity-90 transition-colors whitespace-nowrap">
+                        Subscribe Now
+                    </button>
+                </form>
+                <p class="text-sm text-gray-500 mt-4">We respect your privacy. Unsubscribe at any time.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <a href="index.html" class="inline-block mb-4 flex items-center">
+  			<img src="Images/safi-logo.png" alt="SafiTech Ltd" class="h-10 w-auto" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<span class=\'text-3xl font-[Pacifico] text-primary\'>SafiTech Ltd</span>');" />
+			</a>
+                    <p class="text-gray-400 mb-6">Premium paint products and professional painting services for residential and commercial clients.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full text-gray-400 hover:text-white hover:bg-primary transition-colors">
+                            <i class="ri-facebook-fill"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full text-gray-400 hover:text-white hover:bg-primary transition-colors">
+                            <i class="ri-instagram-line"></i>
+                        </a>
+                        <a href="http://wa.me/254722756629" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full text-gray-400 hover:text-white hover:bg-primary transition-colors">
+                            <i class="ri-whatsapp-line ri-lg"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full text-gray-400 hover:text-white hover:bg-primary transition-colors">
+                            <i class="ri-youtube-line"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Quick Links</h3>
+                    <ul class="space-y-3">
+                        <li><a href="home-1.html" class="text-gray-400 hover:text-primary transition-colors">Home</a></li>
+                        <li><a href="about-1.html" class="text-gray-400 hover:text-primary transition-colors">About</a></li>
+                        <li><a href="services-2.html" class="text-gray-400 hover:text-primary transition-colors">Services</a></li>
+                        <li><a href="home-1.html#gallery" class="text-gray-400 hover:text-primary transition-colors">Gallery</a></li>
+                        <li><a href="home-1.html#blog" class="text-gray-400 hover:text-primary transition-colors">Blog</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Recent News</h3>
+                    <ul class="space-y-3">
+                        <li><a href="https://safitechltd.co.ke/complete-diy-house-painting-guide-tools-tips-and-techniques/" class="text-gray-400 hover:text-primary transition-colors">Complete DIY House Painting Guide: Tools, Tips, And Techniques</a></li>
+                        <li><a href="https://safitechltd.co.ke/ultimate-guide-to-waterproof-paints-in-kenya-what-works-best-in-2025/" class="text-gray-400 hover:text-primary transition-colors">Ultimate Guide To Waterproof Paints In Kenya: What Works Best In 2025</a></li>
+                        <li><a href="https://safitechltd.co.ke/latest-interior-paint-trends-for-kenyan-homes-in-2025/" class="text-gray-400 hover:text-primary transition-colors">Latest Interior Paint Trends For Kenyan Homes In 2025</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Newsletter</h3>
+                    <p class="text-gray-400 mb-6">Subscribe to our newsletter for the latest updates, tips, and special offers.</p>
+                    <form class="mb-4">
+                        <div class="flex">
+                            <input type="email" placeholder="Your email address" class="w-full px-4 py-3 bg-gray-800 border-none rounded-l focus:outline-none focus:ring-2 focus:ring-primary/50 text-white">
+                            <button type="submit" class="bg-primary text-white px-4 py-3 !rounded-r-button font-medium hover:bg-opacity-90 transition-all whitespace-nowrap">Subscribe</button>
+                        </div>
+                    </form>
+                    <div class="flex flex-wrap gap-2">
+                        <div class="w-8 h-8 flex items-center justify-center">
+                            <i class="ri-visa-fill ri-lg"></i>
+                        </div>
+                        <div class="w-8 h-8 flex items-center justify-center">
+                            <i class="ri-mastercard-fill ri-lg"></i>
+                        </div>
+                        <div class="w-8 h-8 flex items-center justify-center">
+                            <i class="ri-paypal-fill ri-lg"></i>
+                        </div>
+                        <div class="w-8 h-8 flex items-center justify-center">
+                            <i class="ri-american-express-fill ri-lg"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2024 SafiTech Ltd. All rights reserved.</p>
+                    <div class="flex space-x-6">
+                        <a href="#" class="text-gray-400 hover:text-primary text-sm transition-colors">Privacy Policy</a>
+                        <a href="#" class="text-gray-400 hover:text-primary text-sm transition-colors">Terms of Service</a>
+                        <a href="#" class="text-gray-400 hover:text-primary text-sm transition-colors">Sitemap</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script id="dropdownScript">
+        document.addEventListener('DOMContentLoaded', function() {
+            const subjectBtn = document.getElementById('subjectBtn');
+            const subjectDropdown = document.getElementById('subjectDropdown');
+            const subjectText = document.getElementById('subjectText');
+            const subjectOptions = document.querySelectorAll('.subject-option');
+            
+            subjectBtn.addEventListener('click', function() {
+                subjectDropdown.classList.toggle('hidden');
+            });
+            
+            subjectOptions.forEach(option => {
+                option.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    subjectText.textContent = this.textContent;
+                    subjectDropdown.classList.add('hidden');
+                });
+            });
+            
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!subjectBtn.contains(e.target) && !subjectDropdown.contains(e.target)) {
+                    subjectDropdown.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+
+    <script id="faqScript">
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqHeaders = document.querySelectorAll('.faq-item-header');
+            
+            faqHeaders.forEach(header => {
+                header.addEventListener('click', function() {
+                    const content = this.nextElementSibling;
+                    const icon = this.querySelector('.faq-icon');
+                    
+                    // Toggle active class
+                    this.classList.toggle('active');
+                    content.classList.toggle('active');
+                    
+                    // Rotate icon
+                    if (content.classList.contains('active')) {
+                        icon.style.transform = 'rotate(180deg)';
+                    } else {
+                        icon.style.transform = 'rotate(0)';
+                    }
+                });
+            });
+            
+            // Open first FAQ item by default
+            if (faqHeaders.length > 0) {
+                faqHeaders[0].click();
+            }
+        });
+    </script>
+
+    <script id="formScript">
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactForm = document.getElementById('contactForm');
+            
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Simple validation
+                let isValid = true;
+                const requiredFields = contactForm.querySelectorAll('[required]');
+                
+                requiredFields.forEach(field => {
+                    if (!field.value.trim()) {
+                        isValid = false;
+                        field.classList.add('border-red-500');
+                    } else {
+                        field.classList.remove('border-red-500');
+                    }
+                });
+                
+                if (isValid) {
+                    // Show success message (in a real app, you would submit the form)
+                    const formContainer = contactForm.parentElement;
+                    const successMessage = document.createElement('div');
+                    successMessage.className = 'bg-green-50 border border-green-200 text-green-700 p-4 rounded mt-4';
+                    successMessage.innerHTML = `
+                        <div class="flex items-center">
+                            <i class="ri-check-line ri-lg mr-2"></i>
+                            <p>Thank you for your message! We'll get back to you shortly.</p>
+                        </div>
+                    `;
+                    
+                    contactForm.reset();
+                    contactForm.style.display = 'none';
+                    formContainer.appendChild(successMessage);
+                    
+                    // Reset form after 5 seconds
+                    setTimeout(() => {
+                        contactForm.style.display = 'block';
+                        formContainer.removeChild(successMessage);
+                    }, 5000);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

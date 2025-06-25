@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safitech ltd</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>tailwind.config={theme:{extend:{colors:{primary:'#81cad6',secondary:'#edcd44', accent: '#dc3e26'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="icon" type="image/png" href="images/favicon-1.png">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <style>
+        :where([class^="ri-"])::before { content: "\f3c2"; }
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(129, 202, 214, 0.9), rgba(237, 205, 68, 0.8), rgba(220, 62, 38, 0.7));
+        }
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        .service-icon {
+            transition: transform 0.5s ease;
+        }
+        .service-card:hover .service-icon {
+            transform: rotate(10deg) scale(1.1);
+        }
+        .testimonial-slider {
+            scroll-behavior: smooth;
+        }
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #81cad6;
+            box-shadow: 0 0 0 3px rgba(129, 202, 214, 0.2);
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #81cad6;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .sticky-nav {
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .color-wheel {
+            animation: rotate 20s linear infinite;
+        }
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .custom-checkbox {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #81cad6;
+            border-radius: 4px;
+            outline: none;
+            cursor: pointer;
+            position: relative;
+        }
+        .custom-checkbox:checked {
+            background-color: #81cad6;
+        }
+        .custom-checkbox:checked::after {
+            content: '✓';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 12px;
+        }
+        .custom-switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+        }
+        .custom-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        input:checked + .slider {
+            background-color: #81cad6;
+        }
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+        .range-slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 8px;
+            border-radius: 5px;
+            background: #e0e0e0;
+            outline: none;
+        }
+        .range-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #81cad6;
+            cursor: pointer;
+            border: 2px solid white;
+            box-shadow: 0 0 5px rgba(0,0,0,0.2);
+        }
+        .range-slider::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #81cad6;
+            cursor: pointer;
+            border: 2px solid white;
+            box-shadow: 0 0 5px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Navbar -->
+    <nav id="navbar" class="navbar fixed w-full z-50 px-4 py-3 transition-all duration-300">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="home-1.html" class="flex items-center">
+            <img src="Images/safi-logo.png" alt="SafiTechltd" class="h-10 w-auto" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<span class=\'text-3xl font-[Pacifico] text-primary\'>SafiTechltd</span>');" />
+            <div class="hidden md:flex space-x-8">
+                <a href="home-1.html" class="text-gray-800 hover:text-primary font-medium transition-colors">Home</a>
+                <a href="#" class="text-gray-800 hover:text-primary font-medium transition-colors">About</a>
+                <a href="services-2.html" class="text-gray-800 hover:text-primary font-medium transition-colors">Services</a>
+                <a href="about-1.html#gallery" class="text-gray-800 hover:text-primary font-medium transition-colors">Gallery</a>
+                <a href="#blog" class="text-gray-800 hover:text-primary font-medium transition-colors">Blog</a>
+                <a href="contact-1.html" class="text-gray-800 hover:text-primary font-medium transition-colors">Contact</a>
+            </div>
+            
+            <div class="flex items-center space-x-4">         
+                <a href="http://wa.me/254722756629" class="bg-primary text-white px-6 py-2 !rounded-button font-medium hover:bg-opacity-90 transition-all whitespace-nowrap hidden md:block">Get a Quote</a>
+                
+                <button class="w-10 h-10 flex items-center justify-center text-gray-700 md:hidden">
+                    <i class="ri-menu-line ri-xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg absolute w-full">
+            <div class="container mx-auto px-6 py-4 flex flex-col space-y-4">
+                <a href="home-1.html" class="text-gray-800 font-medium hover:text-primary transition-colors">Home</a>
+                <a href="about-1.html" class="text-gray-800 font-medium hover:text-primary transition-colors">About</a>
+                <a href="services-2.html" class="text-gray-800 font-medium hover:text-primary transition-colors">Services</a>
+                <a href="home-1.html#gallery" class="text-gray-800 font-medium hover:text-primary transition-colors">Gallery</a>
+                <a href="#" class="text-gray-800 font-medium hover:text-primary transition-colors">Contact</a>
+                <a href="http://wa.me/254722756629" class="bg-primary text-white font-semibold px-6 py-2 !rounded-button shadow-md hover:shadow-lg transition-all text-center whitespace-nowrap">Get a Quote</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center" style="background-image: url('https://readdy.ai/api/search-image?query=Professional%20painting%20services%20scene%20with%20paint%20brushes%2C%20rollers%2C%20and%20color%20swatches%20arranged%20artistically%20against%20a%20gradient%20background%20blending%20sky%20blue%2C%20golden%20yellow%2C%20and%20red-orange.%20The%20image%20has%20a%20clean%2C%20modern%20aesthetic%20with%20soft%20lighting%20and%20subtle%20depth%20of%20field%2C%20perfect%20for%20a%20hero%20section%20background.&width=1920&height=1080&seq=1&orientation=landscape'); background-size: cover; background-position: center;">
+        <div class="absolute inset-0 hero-gradient opacity-90"></div>
+        
+        <!-- Floating Elements -->
+        <div class="absolute top-1/4 right-1/4 w-16 h-16 floating" style="animation-delay: 0.5s;">
+            <div class="w-16 h-16 rounded-full bg-white shadow-lg flex items-center justify-center">
+                <i class="ri-brush-line ri-xl text-primary"></i>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-1/3 left-1/4 w-20 h-20 floating" style="animation-delay: 1s;">
+            <div class="w-20 h-20 rounded-full bg-white shadow-lg flex items-center justify-center">
+                <i class="ri-paint-brush-line ri-xl text-accent"></i>
+            </div>
+        </div>
+        
+        <div class="absolute top-1/3 right-1/5 w-24 h-24 color-wheel">
+            <div class="w-24 h-24 rounded-full bg-white shadow-lg overflow-hidden">
+                <div class="h-full" style="background: conic-gradient(#81cad6, #edcd44, #dc3e26, #81cad6);"></div>
+            </div>
+        </div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="w-full max-w-3xl mx-auto text-center">
+                <h1 class="text-5xl md:text-6xl font-bold text-white mb-6 fade-in visible">Our Services</h1>
+                <p class="text-xl text-white mb-8 fade-in visible" style="animation-delay: 0.3s;">Transform your space with our premium painting solutions. Professional quality, exceptional results.</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center fade-in visible" style="animation-delay: 0.6s;">
+                    <a href="#services" class="bg-white text-primary font-semibold px-8 py-3 !rounded-button shadow-md hover:shadow-lg transition-all whitespace-nowrap">Explore Services</a>
+                    <a href="http://wa.me/254722756629" class="bg-transparent border-2 border-white text-white font-semibold px-8 py-3 !rounded-button hover:bg-white hover:text-primary transition-all whitespace-nowrap">Get a Quote</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4 fade-in">Professional Painting Services</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto fade-in">We offer a comprehensive range of painting solutions tailored to your specific needs, ensuring exceptional quality and lasting results.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Service 1 -->
+                <div class="service-card bg-white rounded-lg shadow-md p-8 transition-all duration-300 fade-in">
+                    <div class="service-icon w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="ri-home-line ri-xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3 text-center">Residential Painting</h3>
+                    <p class="text-gray-600 text-center mb-6">Transform your home with our premium interior and exterior painting services, tailored to your style and preferences.</p>
+                    <a href="#" class="block text-center text-primary font-medium hover:text-primary/80 transition-colors">Learn More</a>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card bg-white rounded-lg shadow-md p-8 transition-all duration-300 fade-in">
+                    <div class="service-icon w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="ri-building-line ri-xl text-secondary"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3 text-center">Commercial Painting</h3>
+                    <p class="text-gray-600 text-center mb-6">Professional painting solutions for offices, retail spaces, and commercial buildings with minimal disruption.</p>
+                    <a href="#" class="block text-center text-primary font-medium hover:text-primary/80 transition-colors">Learn More</a>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card bg-white rounded-lg shadow-md p-8 transition-all duration-300 fade-in">
+                    <div class="service-icon w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="ri-paint-line ri-xl text-accent"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3 text-center">Decorative Finishes</h3>
+                    <p class="text-gray-600 text-center mb-6">Elevate your space with custom textures, faux finishes, and decorative techniques that add character and style.</p>
+                    <a href="#" class="block text-center text-primary font-medium hover:text-primary/80 transition-colors">Learn More</a>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="service-card bg-white rounded-lg shadow-md p-8 transition-all duration-300 fade-in">
+                    <div class="service-icon w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="ri-tools-line ri-xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3 text-center">Surface Preparation</h3>
+                    <p class="text-gray-600 text-center mb-6">Comprehensive surface preparation including cleaning, sanding, and priming to ensure long-lasting, flawless results.</p>
+                    <a href="#" class="block text-center text-primary font-medium hover:text-primary/80 transition-colors">Learn More</a>
+                </div>
+            </div>
+            
+            <div class="mt-16 text-center fade-in">
+                <a href="http://wa.me/254722756629?text=Hello,%20Can%20we%20discuss%20about%20a%20project%20I%20have%20for%20you?" class="inline-block bg-primary text-white font-semibold px-8 py-3 !rounded-button shadow-md hover:shadow-lg transition-all whitespace-nowrap">Request Custom Service</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4 fade-in">Our Recent Projects</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto fade-in">Browse through our portfolio of completed projects showcasing our expertise and attention to detail.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="overflow-hidden rounded-lg shadow-md fade-in">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=Modern%20living%20room%20with%20freshly%20painted%20light%20blue%20walls%2C%20contemporary%20furniture%2C%20large%20windows%20with%20natural%20light%20streaming%20in.%20The%20paint%20job%20is%20flawless%20with%20clean%20lines%20and%20perfect%20finish%2C%20showcasing%20professional%20residential%20painting%20work.&width=600&height=400&seq=2&orientation=landscape" alt="Residential Project" class="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold text-white mb-2">Modern Living Room Transformation</h3>
+                                <p class="text-white/80">Residential Interior</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="overflow-hidden rounded-lg shadow-md fade-in">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=Professional%20office%20space%20with%20clean%20white%20walls%20and%20accent%20wall%20in%20corporate%20blue%20color.%20The%20painting%20is%20precise%20with%20sharp%20edges%20where%20colors%20meet%2C%20showing%20high-quality%20commercial%20painting%20work%20in%20a%20modern%20business%20environment.&width=600&height=400&seq=3&orientation=landscape" alt="Commercial Project" class="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold text-white mb-2">Corporate Office Renovation</h3>
+                                <p class="text-white/80">Commercial Interior</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="overflow-hidden rounded-lg shadow-md fade-in">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=Elegant%20dining%20room%20with%20decorative%20wall%20finish%20featuring%20textured%20paint%20in%20a%20subtle%20gold%20pattern%20over%20cream%20base.%20The%20decorative%20technique%20creates%20a%20luxurious%20atmosphere%20with%20soft%20lighting%20highlighting%20the%20texture%20and%20depth%20of%20the%20specialized%20paint%20finish.&width=600&height=400&seq=4&orientation=landscape" alt="Decorative Project" class="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold text-white mb-2">Luxury Dining Room Accent Wall</h3>
+                                <p class="text-white/80">Decorative Finish</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 4 -->
+                <div class="overflow-hidden rounded-lg shadow-md fade-in">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=Classic%20Victorian%20home%20exterior%20with%20fresh%20paint%20in%20heritage%20colors%2C%20featuring%20detailed%20trim%20work%20in%20contrasting%20colors.%20The%20paint%20job%20highlights%20the%20architectural%20details%20and%20brings%20new%20life%20to%20the%20historic%20structure.&width=600&height=400&seq=5&orientation=landscape" alt="Exterior Project" class="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold text-white mb-2">Victorian Home Exterior</h3>
+                                <p class="text-white/80">Residential Exterior</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 5 -->
+                <div class="overflow-hidden rounded-lg shadow-md fade-in">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=Retail%20store%20interior%20with%20vibrant%20accent%20walls%20in%20brand%20colors%2C%20creating%20a%20cohesive%20shopping%20environment.%20The%20paint%20work%20is%20precise%20and%20even%2C%20demonstrating%20professional%20commercial%20painting%20expertise%20in%20a%20high-traffic%20retail%20space.&width=600&height=400&seq=6&orientation=landscape" alt="Retail Project" class="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold text-white mb-2">Boutique Retail Space</h3>
+                                <p class="text-white/80">Commercial Interior</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 6 -->
+                <div class="overflow-hidden rounded-lg shadow-md fade-in">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=Modern%20kitchen%20with%20custom%20cabinet%20refinishing%20in%20white%20with%20blue%20island%2C%20showing%20professional%20cabinetry%20painting.%20The%20finish%20is%20smooth%20and%20durable%2C%20transforming%20the%20kitchen%20with%20a%20fresh%2C%20contemporary%20look.&width=600&height=400&seq=7&orientation=landscape" alt="Cabinet Project" class="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold text-white mb-2">Kitchen Cabinet Refinishing</h3>
+                                <p class="text-white/80">Specialty Painting</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-16 text-center fade-in">
+                <a href="home-1.html#gallery" class="inline-block bg-primary text-white font-semibold px-8 py-3 !rounded-button shadow-md hover:shadow-lg transition-all whitespace-nowrap">View All Projects</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4 fade-in">Our Painting Process</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto fade-in">We follow a meticulous process to ensure exceptional results and complete satisfaction.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Step 1 -->
+                <div class="bg-white rounded-lg shadow-md p-8 fade-in">
+                    <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold text-xl mb-6">1</div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Consultation</h3>
+                    <p class="text-gray-600">We meet to discuss your vision, preferences, and requirements to create a tailored plan.</p>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="bg-white rounded-lg shadow-md p-8 fade-in">
+                    <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold text-xl mb-6">2</div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Preparation</h3>
+                    <p class="text-gray-600">We carefully prepare surfaces, protect your belongings, and address any repairs needed.</p>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="bg-white rounded-lg shadow-md p-8 fade-in">
+                    <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold text-xl mb-6">3</div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Painting</h3>
+                    <p class="text-gray-600">Our skilled team applies premium paints using professional techniques for flawless results.</p>
+                </div>
+                
+                <!-- Step 4 -->
+                <div class="bg-white rounded-lg shadow-md p-8 fade-in">
+                    <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold text-xl mb-6">4</div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Final Inspection</h3>
+                    <p class="text-gray-600">We conduct a thorough inspection and walkthrough to ensure your complete satisfaction.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4 fade-in">Client Testimonials</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto fade-in">Hear what our satisfied clients have to say about our painting services.</p>
+            </div>
+            
+            <div class="relative">
+                <div id="testimonial-container" class="overflow-hidden">
+                    <div id="testimonial-slider" class="testimonial-slider flex transition-transform duration-500">
+                        <!-- Testimonial 1 -->
+                        <div class="min-w-full px-4">
+                            <div class="bg-gray-50 rounded-lg shadow-md p-8 md:p-10">
+                                <div class="flex flex-col md:flex-row items-center md:items-start gap-6">
+                                    <div class="w-20 h-20 rounded-full overflow-hidden flex-shrink-0">
+                                        <img src="images/person-1.png" alt="Client" class="w-full h-full object-cover">
+                                    </div>
+                                    <div>
+                                        <div class="flex mb-3">
+                                            <i class="ri-star-fill ri-lg text-yellow-400"></i>
+                                            <i class="ri-star-fill ri-lg text-yellow-400"></i>
+                                            <i class="ri-star-fill ri-lg text-yellow-400"></i>
+                                            <i class="ri-star-fill ri-lg text-yellow-400"></i>
+                                            <i class="ri-star-fill ri-lg text-yellow-400"></i>
+                                        </div>
+                                        <p class="text-gray-700 italic mb-4">"The team at this painting company exceeded all my expectations. They transformed our living room with their attention to detail and expert color advice. The crew was professional, punctual, and left everything spotless. I couldn't be happier with the results!"</p>
+                                        <h4 class="text-lg font-semibold text-gray-800">Newton Ihugu</h4>
+                                        <p class="text-gray-600">Residential Client</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Testimonial 2 -->
+                        <div class="min-w-full px-4">
+                            <div class="bg-gray-50 rounded-lg shadow-md p-8 md:p-10">
+                                <div class="flex flex-col md:flex-row items-center md:items-start gap-6">
+                                    <div class="w-20 h-20 rounded-full overflow-hidden flex-shrink-0">
+                                        <img src="images/person-2.png" alt="Client" class="w-full h-full object-cover">
+                                    </div>
+                                    <div>
+                                        <div class="flex mb-3">
+                                            <i class="ri-star-fill ri-lg text-yellow-400"></i>
+                                            <i class="ri-star-fill ri-lg text-yellow-400"></i>
+                                            <i class="ri-star-fill ri-lg text-yellow-400"></i>
+                                            <i class="ri-star-fill ri-lg text-yellow-400"></i>
+                                            <i class="ri-star-fill ri-lg text-yellow-400"></i>
+                                        </div>
+                                        <p class="text-gray-700 italic mb-4">"As a business owner, I needed a painting company that could work around our operating hours with minimal disruption. This team delivered exactly that. They repainted our entire office over a weekend, and the quality of work was outstanding. Our clients have been complimenting the new look ever since."</p>
+                                        <h4 class="text-lg font-semibold text-gray-800">Sophia Wangari</h4>
+                                        <p class="text-gray-600">Business Owner</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Testimonial 3 -->
+                        <div class="min-w-full px-4">
+                            <div class="bg-gray-50 rounded-lg shadow-md p-8 md:p-10">
+                                <div class="flex flex-col md:flex-row items-center md:items-start gap-6">
+                                    <div class="w-20 h-20 rounded-full overflow-hidden flex-shrink-0">
+                                        <img src="images/person-3.png" alt="Client" class="w-full h-full object-cover">
+                                    </div>
+                                    <div>
+                                        <div class="flex mb-3">
+                                            <i class="ri-star-fill ri-lg text-yellow-400"></i>
+                                            <i class="ri-star-fill ri-lg text-yellow-400"></i>
+                                            <i class="ri-star-fill ri-lg text-yellow-400"></i>
+                                            <i class="ri-star-fill ri-lg text-yellow-400"></i>
+                                            <i class="ri-star-fill ri-lg text-yellow-400"></i>
+                                        </div>
+                                        <p class="text-gray-700 italic mb-4">"I wanted a special decorative finish for my dining room, and they delivered beyond my expectations. The faux finish they created is absolutely stunning and has become the focal point of our home. Their artistic talent combined with technical expertise is truly impressive."</p>
+                                        <h4 class="text-lg font-semibold text-gray-800">Elphas Omwamba</h4>
+                                        <p class="text-gray-600">Residential Client</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Navigation Arrows -->
+                <button id="prev-testimonial" class="absolute top-1/2 left-0 -translate-y-1/2 w-10 h-10 bg-white rounded-full shadow-md flex items-center justify-center text-primary hover:bg-gray-100 transition-colors z-10">
+                    <i class="ri-arrow-left-s-line ri-lg"></i>
+                </button>
+                
+                <button id="next-testimonial" class="absolute top-1/2 right-0 -translate-y-1/2 w-10 h-10 bg-white rounded-full shadow-md flex items-center justify-center text-primary hover:bg-gray-100 transition-colors z-10">
+                    <i class="ri-arrow-right-s-line ri-lg"></i>
+                </button>
+                
+                <!-- Dots -->
+                <div class="flex justify-center mt-8 gap-2">
+                    <button class="testimonial-dot w-3 h-3 rounded-full bg-primary"></button>
+                    <button class="testimonial-dot w-3 h-3 rounded-full bg-gray-300"></button>
+                    <button class="testimonial-dot w-3 h-3 rounded-full bg-gray-300"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-primary to-accent">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-4xl font-bold text-white mb-6 fade-in">Ready to Transform Your Space?</h2>
+                <p class="text-xl text-white/90 mb-8 fade-in">Get in touch with our team today for a free consultation and quote. Let us bring your vision to life with our professional painting services.</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center fade-in">
+                    <a href="contact-1.html" class="bg-white text-primary font-semibold px-8 py-3 !rounded-button shadow-md hover:shadow-lg transition-all whitespace-nowrap">Contact Us</a>
+                    <a href="tel:+254722756629" class="bg-transparent border-2 border-white text-white font-semibold px-8 py-3 !rounded-button hover:bg-white hover:text-primary transition-all whitespace-nowrap">
+                        <i class="ri-phone-line mr-2"></i> Call Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4 fade-in">Get in Touch</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto fade-in">Contact us for a free consultation and quote. We're here to answer any questions you may have.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Contact Form -->
+                <div class="bg-gray-50 rounded-lg shadow-md p-8 fade-in">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-6">Request a Quote</h3>
+                    <form id="contact-form">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label for="name" class="block text-gray-700 mb-2">Full Name</label>
+                                <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary" required>
+                            </div>
+                            <div>
+                                <label for="email" class="block text-gray-700 mb-2">Email Address</label>
+                                <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary" required>
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label for="phone" class="block text-gray-700 mb-2">Phone Number</label>
+                                <input type="tel" id="phone" class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary">
+                            </div>
+                            <div>
+                                <label for="service" class="block text-gray-700 mb-2">Service Needed</label>
+                                <div class="relative">
+                                    <select id="service" class="w-full px-4 py-2 border border-gray-300 rounded appearance-none focus:border-primary pr-8">
+                                        <option value="">Select a service</option>
+                                        <option value="residential">Residential Painting</option>
+                                        <option value="commercial">Commercial Painting</option>
+                                        <option value="decorative">Decorative Finishes</option>
+                                        <option value="cabinet">Cabinet Refinishing</option>
+                                        <option value="exterior">Exterior Painting</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                    <div class="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">
+                                        <i class="ri-arrow-down-s-line text-gray-500"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="message" class="block text-gray-700 mb-2">Project Details</label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded resize-none focus:border-primary"></textarea>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label class="flex items-center">
+                                <input type="checkbox" class="custom-checkbox mr-3">
+                                <span class="text-gray-700">I agree to receive email communications about my project and related services.</span>
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="bg-primary text-white font-semibold px-6 py-3 !rounded-button shadow-md hover:shadow-lg transition-all whitespace-nowrap">Submit Request</button>
+                    </form>
+                </div>
+                
+                <!-- Contact Information -->
+                <div class="fade-in">
+                    <div class="bg-gray-50 rounded-lg shadow-md p-8 mb-8">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-6">Contact Information</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4 mt-1">
+                                    <i class="ri-map-pin-line text-primary"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-medium text-gray-800">Our Location</h4>
+                                    <p class="text-gray-600">Nairobi, Kenya</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4 mt-1">
+                                    <i class="ri-phone-line text-primary"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-medium text-gray-800">Phone Number</h4>
+                                    <p class="text-gray-600">(+254) 722-756-629</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4 mt-1">
+                                    <i class="ri-mail-line text-primary"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-medium text-gray-800">Email Address</h4>
+                                    <p class="text-gray-600">safitechltd@gmail.com</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4 mt-1">
+                                    <i class="ri-time-line text-primary"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-medium text-gray-800">Business Hours</h4>
+                                    <p class="text-gray-600">Monday - Friday: 8:00 AM - 6:00 PM<br>Saturday: 9:00 AM - 2:00 PM<br>Sunday: Closed</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-50 rounded-lg shadow-md p-8">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-6">Why Choose Us</h3>
+                        <p class="text-gray-600 mb-4">We proudly stand out because of our:</p>
+                        <div class="grid grid-cols-2 gap-2">
+                            <div class="flex items-center">
+                                <i class="ri-checkbox-circle-line text-primary mr-2"></i>
+                                <span class="text-gray-700">Quality workmanship</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="ri-checkbox-circle-line text-primary mr-2"></i>
+                                <span class="text-gray-700">Timely project delivery</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="ri-checkbox-circle-line text-primary mr-2"></i>
+                                <span class="text-gray-700">Skilled professionals</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="ri-checkbox-circle-line text-primary mr-2"></i>
+                                <span class="text-gray-700">Affordable rates</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="ri-checkbox-circle-line text-primary mr-2"></i>
+                                <span class="text-gray-700">Clean, neat finishes</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="ri-checkbox-circle-line text-primary mr-2"></i>
+                                <span class="text-gray-700">Friendly customer service</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <a href="index.html" class="inline-block mb-4 flex items-center">
+  			<img src="Images/safi-logo.png" alt="SafiTech Ltd" class="h-10 w-auto" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<span class=\'text-3xl font-[Pacifico] text-primary\'>SafiTech Ltd</span>');" />
+			</a>
+                    <p class="text-gray-400 mb-6">Premium paint products and professional painting services for residential and commercial clients.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full text-gray-400 hover:text-white hover:bg-primary transition-colors">
+                            <i class="ri-facebook-fill"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full text-gray-400 hover:text-white hover:bg-primary transition-colors">
+                            <i class="ri-instagram-line"></i>
+                        </a>
+                        <a href="http://wa.me/254722756629" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full text-gray-400 hover:text-white hover:bg-primary transition-colors">
+                            <i class="ri-whatsapp-line ri-lg"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full text-gray-400 hover:text-white hover:bg-primary transition-colors">
+                            <i class="ri-youtube-line"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Quick Links</h3>
+                    <ul class="space-y-3">
+                        <li><a href="home-1.html" class="text-gray-400 hover:text-primary transition-colors">Home</a></li>
+                        <li><a href="about-1.html" class="text-gray-400 hover:text-primary transition-colors">About</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">Services</a></li>
+                        <li><a href="#gallery" class="text-gray-400 hover:text-primary transition-colors">Gallery</a></li>
+                        <li><a href="#blog" class="text-gray-400 hover:text-primary transition-colors">Blog</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-primary transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Recent News</h3>
+                    <ul class="space-y-3">
+                        <li><a href="https://safitechltd.co.ke/complete-diy-house-painting-guide-tools-tips-and-techniques/" class="text-gray-400 hover:text-primary transition-colors">Complete DIY House Painting Guide: Tools, Tips, And Techniques</a></li>
+                        <li><a href="https://safitechltd.co.ke/ultimate-guide-to-waterproof-paints-in-kenya-what-works-best-in-2025/" class="text-gray-400 hover:text-primary transition-colors">Ultimate Guide To Waterproof Paints In Kenya: What Works Best In 2025</a></li>
+                        <li><a href="https://safitechltd.co.ke/latest-interior-paint-trends-for-kenyan-homes-in-2025/" class="text-gray-400 hover:text-primary transition-colors">Latest Interior Paint Trends For Kenyan Homes In 2025</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Newsletter</h3>
+                    <p class="text-gray-400 mb-6">Subscribe to our newsletter for the latest updates, tips, and special offers.</p>
+                    <form class="mb-4">
+                        <div class="flex">
+                            <input type="email" placeholder="Your email address" class="w-full px-4 py-3 bg-gray-800 border-none rounded-l focus:outline-none focus:ring-2 focus:ring-primary/50 text-white">
+                            <button type="submit" class="bg-primary text-white px-4 py-3 !rounded-r-button font-medium hover:bg-opacity-90 transition-all whitespace-nowrap">Subscribe</button>
+                        </div>
+                    </form>
+                    <div class="flex flex-wrap gap-2">
+                        <div class="w-8 h-8 flex items-center justify-center">
+                            <i class="ri-visa-fill ri-lg"></i>
+                        </div>
+                        <div class="w-8 h-8 flex items-center justify-center">
+                            <i class="ri-mastercard-fill ri-lg"></i>
+                        </div>
+                        <div class="w-8 h-8 flex items-center justify-center">
+                            <i class="ri-paypal-fill ri-lg"></i>
+                        </div>
+                        <div class="w-8 h-8 flex items-center justify-center">
+                            <i class="ri-american-express-fill ri-lg"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2024 SafiTech Ltd. All rights reserved.</p>
+                    <div class="flex space-x-6">
+                        <a href="#" class="text-gray-400 hover:text-primary text-sm transition-colors">Privacy Policy</a>
+                        <a href="#" class="text-gray-400 hover:text-primary text-sm transition-colors">Terms of Service</a>
+                        <a href="#" class="text-gray-400 hover:text-primary text-sm transition-colors">Sitemap</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-6 right-6 w-12 h-12 bg-primary rounded-full shadow-lg flex items-center justify-center text-white opacity-0 invisible transition-all duration-300 z-50">
+        <i class="ri-arrow-up-line ri-lg"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script id="navigation-script">
+        document.addEventListener('DOMContentLoaded', function() {
+            const navbar = document.getElementById('navbar');
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            // Handle sticky navigation
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 100) {
+                    navbar.classList.add('bg-white', 'shadow-md');
+                    navbar.classList.remove('bg-transparent');
+                    
+                    // Change text color when navbar has background
+                    document.querySelectorAll('#navbar .nav-link').forEach(link => {
+                        link.classList.remove('text-white', 'hover:text-gray-200');
+                        link.classList.add('text-gray-800', 'hover:text-primary');
+                    });
+                    
+                    // Change logo color
+                    document.querySelector('#navbar .font-[\'Pacifico\']').classList.remove('text-white');
+                    document.querySelector('#navbar .font-[\'Pacifico\']').classList.add('text-primary');
+                    
+                    // Change mobile menu button color
+                    if (mobileMenuButton.querySelector('i').classList.contains('ri-menu-line')) {
+                        mobileMenuButton.classList.remove('text-white');
+                        mobileMenuButton.classList.add('text-gray-800');
+                    }
+                } else {
+                    navbar.classList.remove('bg-white', 'shadow-md');
+                    navbar.classList.add('bg-transparent');
+                    
+                    // Revert text color
+                    document.querySelectorAll('#navbar .nav-link').forEach(link => {
+                        link.classList.add('text-white', 'hover:text-gray-200');
+                        link.classList.remove('text-gray-800', 'hover:text-primary');
+                    });
+                    
+                    // Revert logo color
+                    document.querySelector('#navbar .font-[\'Pacifico\']').classList.add('text-white');
+                    document.querySelector('#navbar .font-[\'Pacifico\']').classList.remove('text-primary');
+                    
+                    // Revert mobile menu button color
+                    if (mobileMenuButton.querySelector('i').classList.contains('ri-menu-line')) {
+                        mobileMenuButton.classList.add('text-white');
+                        mobileMenuButton.classList.remove('text-gray-800');
+                    }
+                }
+            });
+            
+            // Toggle mobile menu
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+                
+                // Toggle icon
+                const icon = mobileMenuButton.querySelector('i');
+                if (icon.classList.contains('ri-menu-line')) {
+                    icon.classList.remove('ri-menu-line');
+                    icon.classList.add('ri-close-line');
+                } else {
+                    icon.classList.add('ri-menu-line');
+                    icon.classList.remove('ri-close-line');
+                }
+            });
+            
+            // Close mobile menu when clicking on a link
+            document.querySelectorAll('#mobile-menu a').forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileMenu.classList.add('hidden');
+                    
+                    // Reset icon
+                    const icon = mobileMenuButton.querySelector('i');
+                    icon.classList.add('ri-menu-line');
+                    icon.classList.remove('ri-close-line');
+                });
+            });
+            
+            // Smooth scroll for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80, // Adjust for navbar height
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+
+    <script id="testimonial-slider-script">
+        document.addEventListener('DOMContentLoaded', function() {
+            const slider = document.getElementById('testimonial-slider');
+            const prevButton = document.getElementById('prev-testimonial');
+            const nextButton = document.getElementById('next-testimonial');
+            const dots = document.querySelectorAll('.testimonial-dot');
+            
+            let currentSlide = 0;
+            const slideCount = slider.children.length;
+            
+            function updateSlider() {
+                slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+                
+                // Update dots
+                dots.forEach((dot, index) => {
+                    if (index === currentSlide) {
+                        dot.classList.remove('bg-gray-300');
+                        dot.classList.add('bg-primary');
+                    } else {
+                        dot.classList.add('bg-gray-300');
+                        dot.classList.remove('bg-primary');
+                    }
+                });
+            }
+            
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % slideCount;
+                updateSlider();
+            }
+            
+            function prevSlide() {
+                currentSlide = (currentSlide - 1 + slideCount) % slideCount;
+                updateSlider();
+            }
+            
+            // Event listeners
+            nextButton.addEventListener('click', nextSlide);
+            prevButton.addEventListener('click', prevSlide);
+            
+            // Dot navigation
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    currentSlide = index;
+                    updateSlider();
+                });
+            });
+            
+            // Auto-advance slides
+            let slideInterval = setInterval(nextSlide, 5000);
+            
+            // Pause auto-advance on hover
+            const testimonialContainer = document.getElementById('testimonial-container');
+            testimonialContainer.addEventListener('mouseenter', () => {
+                clearInterval(slideInterval);
+            });
+            
+            testimonialContainer.addEventListener('mouseleave', () => {
+                slideInterval = setInterval(nextSlide, 5000);
+            });
+        });
+    </script>
+
+    <script id="scroll-effects-script">
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            const backToTopButton = document.getElementById('back-to-top');
+            
+            // Intersection Observer for fade-in elements
+            const fadeObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        fadeObserver.unobserve(entry.target); // Stop observing once visible
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            fadeElements.forEach(element => {
+                fadeObserver.observe(element);
+            });
+            
+            // Back to Top button
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 500) {
+                    backToTopButton.classList.remove('opacity-0', 'invisible');
+                    backToTopButton.classList.add('opacity-100', 'visible');
+                } else {
+                    backToTopButton.classList.add('opacity-0', 'invisible');
+                    backToTopButton.classList.remove('opacity-100', 'visible');
+                }
+            });
+            
+            backToTopButton.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+    <script id="form-validation-script">
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactForm = document.getElementById('contact-form');
+            
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Simple validation
+                    const name = document.getElementById('name').value;
+                    const email = document.getElementById('email').value;
+                    
+                    if (!name || !email) {
+                        alert('Please fill in all required fields.');
+                        return;
+                    }
+                    
+                    // Email validation
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(email)) {
+                        alert('Please enter a valid email address.');
+                        return;
+                    }
+                    
+                    // Form submission success (in a real app, you'd send data to server)
+                    alert('Thank you for your inquiry! We will contact you shortly.');
+                    contactForm.reset();
+                });
+            }
+            
+            // Custom form elements behavior
+            const customCheckboxes = document.querySelectorAll('.custom-checkbox');
+            customCheckboxes.forEach(checkbox => {
+                checkbox.addEventListener('click', function() {
+                    this.checked = !this.checked;
+                });
+            });
+        });
+    </script>
+</body>
+</html>
