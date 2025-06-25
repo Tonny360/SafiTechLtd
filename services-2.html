@@ -177,43 +177,50 @@
     </style>
 </head>
 <body class="bg-white">
-    <!-- Navbar -->
-    <nav id="navbar" class="navbar fixed w-full z-50 px-4 py-3 transition-all duration-300">
-        <div class="container mx-auto flex justify-between items-center">
-            <a href="index.html" class="flex items-center">
-            <img src="Images/safi-logo.png" alt="SafiTechltd" class="h-10 w-auto" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<span class=\'text-3xl font-[Pacifico] text-primary\'>SafiTechltd</span>');" />
-            <div class="hidden md:flex space-x-8">
-                <a href="index.html" class="text-gray-800 hover:text-primary font-medium transition-colors">Home</a>
-                <a href="about-1.html" class="text-gray-800 hover:text-primary font-medium transition-colors">About</a>
-                <a href="#" class="text-gray-800 hover:text-primary font-medium transition-colors">Services</a>
-                <a href="about-1.html#gallery" class="text-gray-800 hover:text-primary font-medium transition-colors">Gallery</a>
-                <a href="#blog" class="text-gray-800 hover:text-primary font-medium transition-colors">Blog</a>
-                <a href="contact-1.html" class="text-gray-800 hover:text-primary font-medium transition-colors">Contact</a>
-            </div>
-            
-            <div class="flex items-center space-x-4">         
-                <a href="http://wa.me/254722756629" class="bg-primary text-white px-6 py-2 !rounded-button font-medium hover:bg-opacity-90 transition-all whitespace-nowrap hidden md:block">Get a Quote</a>
-                
-                <button class="w-10 h-10 flex items-center justify-center text-gray-700 md:hidden">
-                    <i class="ri-menu-line ri-xl"></i>
-                </button>
-            </div>
-        </div>
-    </nav>
-        
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg absolute w-full">
-            <div class="container mx-auto px-6 py-4 flex flex-col space-y-4">
-                <a href="index.html" class="text-gray-800 font-medium hover:text-primary transition-colors">Home</a>
-                <a href="about-1.html" class="text-gray-800 font-medium hover:text-primary transition-colors">About</a>
-                <a href="#" class="text-gray-800 font-medium hover:text-primary transition-colors">Services</a>
-                <a href="index.html#gallery" class="text-gray-800 font-medium hover:text-primary transition-colors">Gallery</a>
-                <a href="contact-1.html" class="text-gray-800 font-medium hover:text-primary transition-colors">Contact</a>
-                <a href="http://wa.me/254722756629" class="bg-primary text-white font-semibold px-6 py-2 !rounded-button shadow-md hover:shadow-lg transition-all text-center whitespace-nowrap">Get a Quote</a>
-            </div>
-        </div>
-    </nav>
+<!-- Navbar -->
+<nav id="navbar" class="navbar fixed w-full z-50 px-4 py-3 transition-all duration-300 bg-white">
+  <div class="container mx-auto flex justify-between items-center">
+    <a href="index.html" class="flex items-center">
+      <img src="Images/safi-logo.png" alt="SafiTechltd" class="h-10 w-auto"
+        onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<span class=\'text-3xl font-[Pacifico] text-primary\'>SafiTechltd</span>');" />
+    </a>
 
+    <!-- Desktop Menu -->
+    <div class="hidden md:flex space-x-8">
+      <a href="index.html" class="text-gray-800 hover:text-primary font-medium transition-colors">Home</a>
+      <a href="about-1.html" class="text-gray-800 hover:text-primary font-medium transition-colors">About</a>
+      <a href="#" class="text-gray-800 hover:text-primary font-medium transition-colors">Services</a>
+      <a href="about-1.html#gallery" class="text-gray-800 hover:text-primary font-medium transition-colors">Gallery</a>
+      <a href="#blog" class="text-gray-800 hover:text-primary font-medium transition-colors">Blog</a>
+      <a href="contact-1.html" class="text-gray-800 hover:text-primary font-medium transition-colors">Contact</a>
+    </div>
+
+    <!-- Mobile Toggle Button -->
+    <div class="flex items-center space-x-4">
+      <a href="http://wa.me/254722756629"
+        class="bg-primary text-white px-6 py-2 !rounded-button font-medium hover:bg-opacity-90 transition-all whitespace-nowrap hidden md:block">Get
+        a Quote</a>
+
+      <button id="menu-toggle" class="w-10 h-10 flex items-center justify-center text-gray-700 md:hidden">
+        <i class="ri-menu-line ri-xl"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu"
+    class="md:hidden hidden px-4 pb-4 flex flex-col space-y-4 bg-white shadow-md transition-all duration-300">
+    <a href="index.html" class="text-gray-800 hover:text-primary font-medium transition-colors">Home</a>
+    <a href="about-1.html" class="text-gray-800 hover:text-primary font-medium transition-colors">About</a>
+    <a href="#" class="text-gray-800 hover:text-primary font-medium transition-colors">Services</a>
+    <a href="about-1.html#gallery" class="text-gray-800 hover:text-primary font-medium transition-colors">Gallery</a>
+    <a href="#blog" class="text-gray-800 hover:text-primary font-medium transition-colors">Blog</a>
+    <a href="contact-1.html" class="text-gray-800 hover:text-primary font-medium transition-colors">Contact</a>
+    <a href="http://wa.me/254722756629"
+      class="bg-primary text-white text-center px-4 py-2 rounded-button font-medium hover:bg-opacity-90 transition-all">Get
+      a Quote</a>
+  </div>
+</nav>
     <!-- Hero Section -->
     <section id="home" class="relative min-h-screen flex items-center" style="background-image: url('https://readdy.ai/api/search-image?query=Professional%20painting%20services%20scene%20with%20paint%20brushes%2C%20rollers%2C%20and%20color%20swatches%20arranged%20artistically%20against%20a%20gradient%20background%20blending%20sky%20blue%2C%20golden%20yellow%2C%20and%20red-orange.%20The%20image%20has%20a%20clean%2C%20modern%20aesthetic%20with%20soft%20lighting%20and%20subtle%20depth%20of%20field%2C%20perfect%20for%20a%20hero%20section%20background.&width=1920&height=1080&seq=1&orientation=landscape'); background-size: cover; background-position: center;">
         <div class="absolute inset-0 hero-gradient opacity-90"></div>
